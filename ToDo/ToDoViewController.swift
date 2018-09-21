@@ -11,7 +11,7 @@ import UIKit
 class ToDoViewController: UIViewController, UITableViewDataSource ,UITableViewDelegate{
 
    var saveData: UserDefaults = UserDefaults.standard
-    var savedataArray = [String]()
+    var savedataArray = [UserDefaults]()
     
     var todoX: Double!
     
@@ -25,11 +25,11 @@ class ToDoViewController: UIViewController, UITableViewDataSource ,UITableViewDe
         table.dataSource = self
         table.delegate = self
         
-        savedataArray = []
         
-       var saveData: UserDefaults = UserDefaults.standard
         
-        let result: Double = fabs(todoX)
+        var saveData: UserDefaults = UserDefaults.standard
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -46,7 +46,7 @@ class ToDoViewController: UIViewController, UITableViewDataSource ,UITableViewDe
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = savedataArray[indexPath.row]
+        cell?.textLabel?.text = savedataArray [indexPath.row]
         return cell!
         
     }
